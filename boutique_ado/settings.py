@@ -89,7 +89,8 @@ ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
 ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL= '/accounts/login/'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/' # for testing use /success here without creating the file
+# that way you'll know when the authentication works we'll get a error page expecting success
 
 WSGI_APPLICATION = 'boutique_ado.wsgi.application'
 
