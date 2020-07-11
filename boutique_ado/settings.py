@@ -147,3 +147,11 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.0/howto/static-files/
 
 STATIC_URL = '/static/'
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
+
+# STATICFILES_DIRS is supposed to be a tuple so 'os.path.join etc.' has to be in brackets
+# Normally we would want to set a static route for Django's collectstatic utility
+# But it will interfere with AmazonWebServices later on, so we won't
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
