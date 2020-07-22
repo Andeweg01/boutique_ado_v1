@@ -18,9 +18,6 @@ def bag_contents(request):
             bag_items.append({
                 'item_id': item_id,
                 'quantity': item_data,
-                """ the above key stays quantity instead of item_data
-                    item_data is renamed because there could now be different
-                    sizes in this dictionary """
                 'product': product,
             })
         else:
