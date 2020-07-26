@@ -25,15 +25,18 @@ def checkout(request):
         amount=stripe_total,
         currency=settings.STRIPE_CURRENCY,
     )
-    
-    print(intent)
 
     order_form = OrderForm()
+
+    if not stripe_public_key:
+        messages.warning(request, 'Stripe public key is missing. \
+            Did you forget to set it in your environment?')
+
     template = 'checkout/checkout.html'
     context = {
         'order_form': order_form,
-        'stripe_public_key': 'pk_test_51H991lJoES2mMjUQU98Cc2XrFJGZt7aMocRfq15oc4umyDqFdpA7KwULcBKeqy95Eber8gVESl2fcsBDNHtCO35V00VtNWJ4Ur',
-        'client_secret': 'test client secret',
+        'stripe_public_key': stripe_public_key,
+        'client_secret': intent.client_secret,
     }
 
     return render(request, template, context)
