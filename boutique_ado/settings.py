@@ -114,7 +114,7 @@ LOGIN_REDIRECT_URL = '/'
 WSGI_APPLICATION = 'boutique_ado.wsgi.application'
 
 
-# DataBase
+# Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
 
 if 'DATABASE_URL' in os.environ:
